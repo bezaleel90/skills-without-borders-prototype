@@ -1,0 +1,21 @@
+venv/
+__pycache__/
+.env
+.env.*
+*.pyc
+.DS_Store
+.data/
+node_modules/
+.idea/
+.vscode/
+*.log
+
+# Docker
+*.tar
+
+# Streamlit
+.streamlit/
+
+# Tests
+.coverage
+htmlcov/
