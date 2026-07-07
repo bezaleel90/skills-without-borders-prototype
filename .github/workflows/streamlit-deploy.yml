@@ -1,0 +1,16 @@
+name: Streamlit Deploy Helper
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  prepare-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run deploy helper
+        env:
+          STREAMLIT_API_KEY: ${{ secrets.STREAMLIT_API_KEY }}
+        run: |
+          chmod +x scripts/deploy_streamlit.sh
+          ./scripts/deploy_streamlit.sh
