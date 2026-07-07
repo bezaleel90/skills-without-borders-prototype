@@ -1,0 +1,20 @@
+name: Apply DB schema
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  apply-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install psql
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y postgresql-client
+      - name: Run apply script
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          chmod +x scripts/apply_schema.sh
+          ./scripts/apply_schema.sh
